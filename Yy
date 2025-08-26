@@ -1,3 +1,1 @@
-Goal 1: I want to strengthen my knowledge in React.js by working on more complex UI tasks and handling end-to-end feature changes. This will help me become more confident in front-end development and contribute independently to product improvements.
 
-Goal 2: I want to build a deeper understanding of the review process and explore all types of review modules. This will help me work on related APIs more smoothly and contribute better to integrating review functionality into the system.
