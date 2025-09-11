@@ -1,1 +1,1 @@
-
+For ActiveMQ, we have set authentication to false due to security concerns with storing passwords in plain text files. By default, ActiveMQ does not provide encryption for these files. Although there are workarounds to enable encryption, they require newer versions of ActiveMQ. Since we are currently on version 5.16.7 and cannot upgrade further due to the Java 8 dependency, enabling authentication with encryption is not feasible in our setup
