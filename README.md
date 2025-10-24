@@ -1,30 +1,26 @@
-import { useEffect, useState } from 'react'
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-function App() {
-  const [message, setMessage] = useState('Loading...')
+@Configuration
+public class GlobalCorsConfig {
 
-  useEffect(() => {
-    fetch('http://localhost:8080/myapp/api/hello', {
-      method: 'GET',
-      credentials: 'include', // important if using cookies/auth
-    })
-      .then(response => {
-        if (!response.ok) throw new Error("Network response was not ok")
-        return response.text()
-      })
-      .then(data => setMessage(data))
-      .catch(err => setMessage("Error: " + err.message))
-  }, [])
-
-  return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>React + Spring Demo</h1>
-      <p>{message}</p>
-    </div>
-  )
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**") // applies to all endpoints
+                        .allowedOrigins("http://localhost:5173", "https://your-frontend-domain.com")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+            }
+        };
+    }
 }
 
-export default App
 
 
 
