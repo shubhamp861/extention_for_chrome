@@ -1,20 +1,30 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-           http://www.springframework.org/schema/beans
-           https://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/context
-           https://www.springframework.org/schema/context/spring-context.xsd
-           http://www.springframework.org/schema/mvc
-           https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+import { useEffect, useState } from 'react'
 
-    <!-- Enable @Controller and @RestController scanning -->
-    <context:component-scan base-package="com.yourapp.api" />
+function App() {
+  const [message, setMessage] = useState('Loading...')
 
-    <!-- Enable @RequestMapping -->
-    <mvc:annotation-driven />
-</beans>
+  useEffect(() => {
+    fetch('http://localhost:8080/myapp/api/hello', {
+      method: 'GET',
+      credentials: 'include', // important if using cookies/auth
+    })
+      .then(response => {
+        if (!response.ok) throw new Error("Network response was not ok")
+        return response.text()
+      })
+      .then(data => setMessage(data))
+      .catch(err => setMessage("Error: " + err.message))
+  }, [])
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>React + Spring Demo</h1>
+      <p>{message}</p>
+    </div>
+  )
+}
+
+export default App
+
 
 
