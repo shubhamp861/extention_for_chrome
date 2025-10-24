@@ -1,15 +1,20 @@
-SELECT comp.id,
-       comp.state,
-       comp.is_committed,
-       comp.review_id,
-       cov.covering_user_meu_id,
-       cov.role_type
-FROM   T_AV_REVIEW_COMPONENTS comp
-JOIN   T_AV_REVIEW_COVERAGE cov
-       ON comp.id = cov.review_component_id
-WHERE  comp.state IN ('R', 'A', 'CS', 'M')
-  AND  comp.is_committed = 'N'
-  AND  comp.review_id = 113
-  AND  cov.covering_user_meu_id = 23
-  AND  cov.role_type = 'R';
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- Enable @Controller and @RestController scanning -->
+    <context:component-scan base-package="com.yourapp.api" />
+
+    <!-- Enable @RequestMapping -->
+    <mvc:annotation-driven />
+</beans>
+
 
