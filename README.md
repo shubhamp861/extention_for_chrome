@@ -1,12 +1,11 @@
-Goal: Enhance product stability and engineering efficiency by implementing AI-driven automation and systemic code improvements.   
-JPG
+**Goal:** Ensure on-time delivery of assigned PI3 features without spillover, while maintaining high product quality and rapidly resolving customer escalations.
 
-How are we measuring progress?
+**How are we measuring progress?**
 
-Integrate AI tools into the development workflow to speed up the creation of automation scripts and unit tests by 20%.   
-JPG
+* **Ensure high-quality PI3 delivery:** Consistently deliver assigned features for the v8.0/P12 release on schedule, maintaining strict code quality to help keep Release Candidate (RC) builds under 5.
 
-Adopt AI-assisted code review tools to automate preliminary checks, reducing manual peer review time and speeding up pull requests.   
-JPG
 
-Analyze incoming customer escalations to implement broad, systemic product improvements rather than deploying isolated hotfixes
+* **Accelerate issue resolution:** Prioritize and pull critical G&L defects into early sprint cycles to significantly reduce the time spent on triage and Root Cause Analysis (RCA).
+
+
+* **Ship targeted hotfixes:** Swiftly debug, code, and merge high-priority hotfixes to unblock active escalations, ensuring customers have a stable path to upgrade to the latest product version.
